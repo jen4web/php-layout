@@ -1,0 +1,9 @@
+Based on what you know now, refactor the history page to take advantage of calc and CSS variables.
+
+In general, look for situations where you are using variables to assist CSS declarations where the values are changing in the media queries, rather than redeclaring styles.
+
+Situations where you are declaring a global variable (like a color or a size) that is used over and over, but does not change in media queries, is better suited to Sass.
+
+Jen's end example is not comprehensive -- this is an example of a few places where you could use CSS variables in this example.
+
+Hint: If you don't know where to start, think about navigation as something that changes across media queries. The wrapper class is another example.

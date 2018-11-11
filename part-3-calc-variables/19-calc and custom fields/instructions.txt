@@ -1,0 +1,20 @@
+Jen will introduce you to Calc and Custom Fields, also called CSS Variables, via the Powerpoint slides.
+
+Using the below CodePen examples, you can see the differences between Sass variables and CSS variables.
+
+
+
+
+Sass vs. CSS variables and Inheritance
+
+Sass:
+https://codepen.io/jen4web/pen/rQMVKr?editors=1100
+
+Variables:
+https://codepen.io/jen4web/pen/RqGPxw?editors=1100
+
+
+
+
+Media queries and CSS variables: 
+https://codepen.io/jen4web/pen/oQzxar?editors=1100

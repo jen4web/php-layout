@@ -1,0 +1,194 @@
+@charset "UTF-8";
+/* If you are using Sass, these declarations are better managed there as they are static */
+:root {
+  --primary-color: #00c4c7;
+  --secondary-color: #C80060;
+  --radius: 10px;
+  --std-space: 1em;
+}
+/* these declarations are better suited to CSS variables since their values change in media queries */
+:root {
+    --nav-width: 50%;
+    --floated: right;
+    --displaytype: block; 
+    --linavpad: 0.5em; 
+    --anavpad:  0 0 0 3%; 
+    --wrapperwidth: auto;
+    --wrappermax: auto; 
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+	font-family: "Cabin", Arial, Geneva, sans-serif;
+	background-image: url(../img/clouds.png);
+	margin: 0px;
+	padding: 0px;
+}
+h1,h2,h3 {
+  font-family: 'Niconne', cursive;
+  font-weight: normal;
+  color: var(--secondary-color);
+  margin-top: 0;
+}
+.wrapper {
+  margin: 0 auto;
+  width: var(--wrapperwidth);
+  max-width: var(--wrappermax);
+}
+article img {
+  border-radius: var(--radius);
+  width: 100%;
+  max-width: 250px;
+}
+.bkgdimg {
+  height: 12px;
+    background: url(../img/scallop.png) repeat-x ;
+}
+nav ul {
+  list-style-type: none;
+  background-color: #e6bf98; 
+  padding: .75em;
+  margin: 0;
+  border-bottom: 3px solid #cc8850;
+  overflow: auto;
+}
+/* splits nav into 2 columns
+http://stackoverflow.com/questions/13104818/simple-2-column-navigation-with-css-and-a-single-list */
+nav li:nth-child(even),
+nav li:nth-child(odd) {
+  width: var(--nav-width);
+  float: var(--floated);
+  padding: var(--linavpad);
+  display:  var(--displaytype);
+}
+nav li:nth-child(odd) {
+  --floated: left;
+}
+nav a {
+  color:  var(--secondary-color);
+  text-decoration: none;
+  display: block;
+  padding: var(--anavpad);
+}
+nav a:hover {
+  color: var(--primary-color);
+}
+/* add gallery class */
+.content {
+  background-color: #fff6e0;
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+  padding: 2em;
+}
+.floatleft {
+  float: left;
+  margin: 0 var(--std-space) var(--std-space) 0;
+}
+.floatright {
+  float: right;
+  margin: 0 0 var(--std-space) var(--std-space);
+}
+[class*='sidebar'] {
+  border: 1px solid  var(--primary-color);
+  border-radius: var(--radius);
+  margin: 3em 0;
+}
+[class*='sidebar'] h3 {
+  margin: 0;
+  color: white;
+  background-color: var(--primary-color);
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  padding-left: calc(var(--std-space) / 2);
+}
+[class*='sidebar'] img {
+  border-radius: 0px 0px var(--radius) var(--radius);
+  width: 100%;
+  max-width: 250px;
+  display: block; /* without this, there is a gap between the image and border -- space for descenders in text, for inline elements */
+} 
+.sidebar-secondary {
+  border-color:  var(--secondary-color);
+}
+.sidebar-secondary h3 {
+  background-color:  var(--secondary-color);
+}
+blockquote {
+  padding: 0em;
+  margin: 0;
+}
+blockquote p, 
+blockquote cite {
+  padding: 0 var(--std-space);
+}
+blockquote cite {
+  text-transform: uppercase;
+  font-style: normal;
+  padding-bottom: var(--std-space);
+  display: block;
+}
+footer {
+  background-color: #00CDD1;
+  color: white;
+  clear: both;
+  margin: 0 calc(var(--std-space) / 2) 3em calc(var(--std-space) / 2);
+}
+footer p {
+  text-align: center;
+}
+footer img {
+  width: 52px;
+}
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 550px) { 
+
+:root {
+      --nav-width: auto;
+      --floated: none;
+      --displaytype: inline-block;   
+      --linavpad: 0; 
+      --anavpad: 0em var(--std-space); 
+      --wrapperwidth: 97%;
+      --wrappermax: 767px; 
+  }
+  .content {
+    display: grid;
+    grid-gap: var(--std-space);
+  }
+  .aside {
+    display: grid;
+    grid-gap: var(--std-space);
+    grid-template-columns: 1fr 1fr;
+  }
+}
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 850px) { 
+:root {
+    --wrapperwidth: 97%;
+    --wrappermax: 1200px; 
+}
+  h2 {
+    font-size: 3em;
+    border-bottom: 2px dotted var(--secondary-color);
+  }
+  h3 {
+    font-size: 2em;
+  }
+  .content {
+       grid-template-columns: 3fr 1fr;
+       grid-gap: 3em;
+  }
+  .aside {
+    display: block;
+  }
+}
